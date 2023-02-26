@@ -1,0 +1,20 @@
+<body>
+  <nav class="navbar-global">
+    <div class="container-fluid">
+      <div class="d-flex">
+        <div>
+          <a [routerLink]="['/Movies']" *ngIf="loggedIn()" class="navbar-brand" href="#">Home</a>
+          <a [routerLink]="['/MoviesCreate']" *ngIf="loggedIn()" class="navbar-brand ">Create Movie</a>
+        </div>
+
+        <div>
+          <a *ngIf="!loggedIn()" class="navbar-brand" [routerLink]="['/Login'] ">Login</a>
+          <a *ngIf="!loggedIn()" class="navbar-brand" [routerLink]="['/Register'] ">Register</a>
+          <a (click)="Logout();" [routerLink]="['/Login']" *ngIf="loggedIn()" class="navbar-brand ">LogOut</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <router-outlet></router-outlet>
+</body>
